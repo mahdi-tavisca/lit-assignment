@@ -1,0 +1,15 @@
+:host {
+    --track-background-color: var(--separator-01);
+    --track-rating-excellent-color: var(--rating-excellent);
+    --track-rating-great-color: var(--rating-great);
+    --track-rating-average-color: var(--rating-average);
+    --track-rating-poor-color: var(--rating-poor);
+    --track-rating-bad-color: var(--rating-bad);
+}
+
+$track-background-color: var(--separator-01);
+$track-rating-excellent-color: var(--rating-excellent);
+$track-rating-great-color: var(--rating-great);
+$track-rating-average-color: var(--rating-average);
+$track-rating-poor-color: var(--rating-poor);
+$track-rating-bad-color: var(--rating-bad);
