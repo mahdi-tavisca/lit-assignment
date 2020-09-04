@@ -11,7 +11,7 @@ export default class OrxeRatingBar extends LitElement {
    * @memberof OrxeRatingBar
    */
   @property({ type: String, attribute: 'label' })
-  label = "";
+  label = "Label";
 
   /**
    * This is all the ratings passed down to this component.
@@ -57,7 +57,7 @@ export default class OrxeRatingBar extends LitElement {
       ></div>
     </div>
     <div class="text">
-      <div>Label</div>
+      <div>${this.label}</div>
       <div>${this.averageRating}</div>
     </div>
     `;
