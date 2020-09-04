@@ -2,32 +2,32 @@
 
 .bar-container {
     width: 100%;
-    background-color: $track-background-color;
-    border-radius: 16px;
-    height: 8px;
+    background-color: var(--track-background-color);
+    border-radius: $rating-bar-border-radius;
+    height: $rating-bar-height;
     display: flex;
 
     .bar {
-        width: 1%;
-        height: 8px;
-        border-radius: 16px;
-        padding-left: 20px;
+        width: 0%;
+        height: $rating-bar-height;
+        border-radius: $rating-bar-border-radius;
+        padding-left: $rating-bar-padding-left;
       }
 
       .track-rating-excellent {
-        background-color: $track-rating-excellent-color;
+        background-color: var(--track-rating-excellent-color);
       }
       .track-rating-great {
-        background-color: $track-rating-great-color;
+        background-color: var(--track-rating-great-color);
       }
       .track-rating-average {
-        background-color: $track-rating-average-color;
+        background-color: var(--track-rating-average-color);
       }
       .track-rating-poor {
-        background-color: $track-rating-poor-color;
+        background-color: var(--track-rating-poor-color);
       }
       .track-rating-bad {
-        background-color: $track-rating-bad-color;
+        background-color: var(--track-rating-bad-color);
       }
   }
 
@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 1.6rem;
+    font-size: var(--rating-bar-label-font-size);
     margin-top: var(--spacing-03);
     color: var(--primary-text);
   }

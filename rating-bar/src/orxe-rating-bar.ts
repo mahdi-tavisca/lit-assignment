@@ -6,45 +6,69 @@ import { classMap } from 'lit-html/directives/class-map';
 @customElement('orxe-rating-bar')
 export default class OrxeRatingBar extends LitElement {
 
+  /**
+   * This is used to label the rating bar.
+   * @memberof OrxeRatingBar
+   */
   @property({ type: String, attribute: 'label' })
   label = "";
 
+  /**
+   * This is all the ratings passed down to this component.
+   * @memberof OrxeRatingBar
+   */
   @property({type: Array, attribute: 'ratings'})
-  ratings = [3, 2, 5];
+  ratings = [1];
 
-  _averageRating = 0;
+   /**
+   * This is used to store the average rating calculated from all the ratings.
+   * @memberof OrxeRatingBar
+   */
+  averageRating = 0;
 
-  _getAverageRating(ratings) {
+   /**
+   * Calculate the average rating from all the ratings.
+   * @memberof OrxeRatingBar
+   */
+  getAverageRating(ratings) {
     const total = ratings.reduce((acc, c) => acc + c, 0);
-    this._averageRating = parseFloat((total / ratings.length).toFixed(1));
+    this.averageRating = parseFloat((total / ratings.length).toFixed(1));
 
-    return this._averageRating;
+    return this.averageRating;
   }
 
-  _renderRatings() {
+  /**
+   * Render the rating bar after the average rating is calculated.
+   * @memberof OrxeRatingBar
+   */
+  renderRatings() {
     return html `
     <div class="bar-container">
       <div class="bar" 
-      style=${styleMap(this._calculateBarWidth())}
+      style=${styleMap(this.calculateBarWidth())}
       class=${classMap({
         'bar': true,
-        'track-rating-excellent': this._averageRating >= 8.5 && this._averageRating <= 10.0,
-        'track-rating-great': this._averageRating >= 7.0 && this._averageRating < 8.5,
-        'track-rating-average': this._averageRating >= 5.0 && this._averageRating < 7.0,
-        'track-rating-poor': this._averageRating >= 3.0 && this._averageRating <= 5.0,
-        'track-rating-bad': this._averageRating >= 0.0 && this._averageRating < 3.0
+        'track-rating-excellent': this.averageRating >= 8.5 && this.averageRating <= 10.0,
+        'track-rating-great': this.averageRating >= 7.0 && this.averageRating < 8.5,
+        'track-rating-average': this.averageRating >= 5.0 && this.averageRating < 7.0,
+        'track-rating-poor': this.averageRating >= 3.0 && this.averageRating <= 5.0,
+        'track-rating-bad': this.averageRating >= 0.0 && this.averageRating < 3.0
         })}
       ></div>
     </div>
     <div class="text">
       <div>Label</div>
-      <div>${this._averageRating}</div>
+      <div>${this.averageRating}</div>
     </div>
     `;
   }
 
-  _calculateBarWidth() {
-    const width = ((this._averageRating) * 10).toString() + "%";
+  /**
+   * Calculates the width of the track bar according to the average rating.
+   * @memberof OrxeRatingBar
+   */
+  calculateBarWidth() {
+    const width = ((this.averageRating) * 10).toString() + "%";
 
     const ratingBarStyle = {
       'width': width
@@ -57,10 +81,10 @@ export default class OrxeRatingBar extends LitElement {
    * Implement `render` to define a template for button element.
    */
   render() {
-    this._getAverageRating(this.ratings);
+    this.getAverageRating(this.ratings);
     return html`
     <div class="rating-container">
-      ${this._renderRatings()}
+      ${this.renderRatings()}
     </div>
     `;
   }

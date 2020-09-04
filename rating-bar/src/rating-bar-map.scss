@@ -1,3 +1,5 @@
+// customizable variables
+
 :host {
     --track-background-color: var(--separator-01);
     --track-rating-excellent-color: var(--rating-excellent);
@@ -5,11 +7,11 @@
     --track-rating-average-color: var(--rating-average);
     --track-rating-poor-color: var(--rating-poor);
     --track-rating-bad-color: var(--rating-bad);
+    --rating-bar-label-font-size: 1.6rem;
 }
 
-$track-background-color: var(--separator-01);
-$track-rating-excellent-color: var(--rating-excellent);
-$track-rating-great-color: var(--rating-great);
-$track-rating-average-color: var(--rating-average);
-$track-rating-poor-color: var(--rating-poor);
-$track-rating-bad-color: var(--rating-bad);
+// non-customizable variables
+
+$rating-bar-border-radius: 16px;
+$rating-bar-height: 8px;
+$rating-bar-padding-left: 20px;
